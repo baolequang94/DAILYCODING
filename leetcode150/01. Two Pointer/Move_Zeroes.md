@@ -7,21 +7,18 @@ Space Complexity - O(1)
 
 ```javascript
 var moveZeroes = function (nums) {
+	const n = nums.length;
 	let l = 0;
 	let r = 1;
-
-	const length = nums.length;
-
-	while (r < length && l < length) {
+	while (r < n) {
 		if (nums[l] !== 0) {
 			l++;
 			r++;
 		} else if (nums[r] === 0) {
 			r++;
 		} else {
-			const tmp = nums[r];
-			nums[r] = nums[l];
-			nums[l] = tmp;
+			nums[l] = nums[r];
+			nums[r] = 0;
 		}
 	}
 
